@@ -4,46 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Noah</title>
+    <!-- External Stylesheets -->
     <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Header Section -->
     <header class="header">
         <a href="#" class="logo">Portfolio.</a>
 
+        <!-- Navigation Menu -->
         <nav class="navbar">
-            <a href="#" style="--i:1;" class="active">Home</a>
-            <a href="#" style="--i:2;">About</a>
+            <a href="#home" style="--i:1;" class="active">Home</a>
+            <a href="#about" style="--i:2;">About</a>
             <a href="#" style="--i:3;">Skills</a>
             <a href="#" style="--i:4;">Portfolio</a>
             <a href="#" style="--i:5;">Contact</a>
         </nav>
     </header>
 
+    <!-- Home Section -->
     <section class="home">
+        <!-- Social Media Links -->
         <div class="home-sci">
-            <a href="https://www.instagram.com/noaharaujocorrea/" class="href"><i class='bx bxl-instagram'></i></a>
-            <a href="https://github.com/NoahCMD" class="href"><i class='bx bxl-github'></i></a>
-            <a href="#" class="href"><i class='bx bxl-linkedin'></i></a>
-
+            <a href="https://www.instagram.com/noaharaujocorrea/"><i class='bx bxl-instagram'></i></a>
+            <a href="https://github.com/NoahCMD"><i class='bx bxl-github'></i></a>
+            <a href="https://www.linkedin.com/in/rafael-corr%C3%AAa-9b3a2b334/"><i class='bx bxl-linkedin'></i></a>
         </div>
+
+        <!-- Home Content -->
         <div class="home-content">
             <h1>NOAH</h1>
             <h3>Full Stack Developer</h3>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste magnam ratione ea eos praesentium aperiam? Perferendis sapiente hic illo quisquam alias illum, at eligendi modi sequi labore repellendus animi? Consectetur.</p>
-            <a href="" class="btn">Hire me</a>
+            <p>
+                I'm a <strong>Full Stack Developer</strong> and <strong>Aerospace & Software Engineering</strong> student from <strong>Brazil</strong>. I combine creativity with efficiency to build innovative, user-friendly solutions that solve real-world problems.
+            </p>
+            <a href="#" class="btn">Hire me</a>
         </div>
 
+        <!-- Home Image -->
         <div class="home-img">
             <div class="glowing-circle">
                 <span></span>
                 <span></span>
                 <div class="image">
-                    <img src="home.png" alt="">
+                    <img src="home.png" alt="Noah's Profile">
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+    <!-- Video Background -->
+    <video autoplay loop muted playsinline class="about-video-bg">
+        <source src="about-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Gradient Overlays -->
+    <div class="fade-overlay-top"></div>
+    <div class="fade-overlay-bottom"></div>
+
+    <!-- About Content -->
+    <div class="about-content">
+        <h2>About Me</h2>
+        <p>
+            Hi, I'm <strong>Noah</strong>, a <strong>Full Stack Developer</strong> and <strong>Aerospace & Software Engineering</strong> student based in <strong>Brazil</strong>. I specialize in turning ideas into functional, user-friendly applications that solve real-world problems. With a strong foundation in both software development and aerospace engineering, I bring a unique perspective to every project I work on.
+        </p>
+        <p>
+            I'm passionate about building scalable web applications, exploring cutting-edge technologies, and contributing to innovative solutions in the aerospace industry. When I'm not coding, you'll find me stargazing, brainstorming new ideas, or diving into the latest advancements in space exploration.
+        </p>
+        <p>
+            Let's connect and build something amazing together!
+        </p>
+    </div>
+</section>
 </body>
 </html>
