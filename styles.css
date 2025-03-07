@@ -1,15 +1,18 @@
-*{
+/* ===== Global Reset ===== */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
 }
 
+/* ===== Body Styles ===== */
 body {
-    background: #0c1022;
+    background: #000000;
     color: #fff;
 }
 
+/* ===== Header Styles ===== */
 .header {
     position: fixed;
     top: 0;
@@ -33,6 +36,7 @@ body {
     animation: slideTop 1s ease forwards;
 }
 
+/* ===== Navigation Styles ===== */
 .navbar a {
     display: inline-block;
     font-size: 18px;
@@ -41,9 +45,8 @@ body {
     font-weight: 500;
     margin-left: 35px;
     opacity: 0;
-    animation: slideTop .5s ease forwards;
-    animation-delay: calc(.2s * var(--i));
-
+    animation: slideTop 0.5s ease forwards;
+    animation-delay: calc(0.2s * var(--i));
 }
 
 .navbar a.active,
@@ -53,6 +56,7 @@ body {
     -webkit-background-clip: text;
 }
 
+/* ===== Home Section Styles ===== */
 .home {
     width: 100%;
     height: 100vh;
@@ -73,7 +77,8 @@ body {
     line-height: 1.2;
     opacity: 0;
     animation: slideRight 1s ease forwards;
-    animation-delay: .7s;
+    animation-delay: 0.7s;
+    font-family: 'Cinzel', serif; /* Apply Cinzel font */
 }
 
 .home-content h3 {
@@ -92,6 +97,77 @@ body {
     animation-delay: 1.3s;
 }
 
+/* ===== About Section Styles ===== */
+/* About Section */
+.about {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    overflow: hidden;
+    color: #fff;
+}
+
+/* Video Background */
+.about-video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Place video behind content */
+    clip-path: polygon(90% 10%, 100% 50%, 90% 90%, 25% 90%, 50% 50%, 25% 10%);
+ /* Custom curve */
+}
+
+/* Gradient Overlays */
+.fade-overlay-top,
+.fade-overlay-bottom {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 70%; /* Adjust the height of the fade */
+    z-index: 0; /* Place overlays above the video but below the content */
+}
+
+.fade-overlay-top {
+    top: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)); /* Fade from solid black to transparent */
+}
+
+.fade-overlay-bottom {
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)); /* Fade from solid black to transparent */
+}
+
+/* About Content */
+.about-content {
+    position: relative;
+    z-index: 1; /* Place content above video and overlays */
+    max-width: 600px;
+}
+
+.about-content h2 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+    animation-delay: 0.7s;
+}
+
+.about-content p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: 1s;
+}
+
+/* ===== Button Styles ===== */
 .btn {
     position: relative;
     display: inline-flex;
@@ -111,26 +187,7 @@ body {
     animation-delay: 1.5s;
 }
 
-.btn::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    inset: 0;
-    background: linear-gradient(45deg, #f06, #3cf, #f06);
-    background-size: 200%;
-    background-position: 0 0;
-    z-index: -1;
-    border-radius: 40px;
-    filter: blur(5px);
-    transition: .5s ease;
-
-}
-.btn.btn:hover::before {
-    background-position: 100% 0;
-
-}
-
+.btn::before,
 .btn::after {
     content: "";
     position: absolute;
@@ -138,17 +195,23 @@ body {
     left: 0;
     inset: 0;
     background: linear-gradient(45deg, #f06, #3cf, #f06);
-    background-position: 0 0;
     background-size: 200%;
+    background-position: 0 0;
     z-index: -1;
     border-radius: 40px;
-    transition: .5s ease;
+    transition: 0.5s ease;
 }
 
+.btn::before {
+    filter: blur(5px);
+}
+
+.btn:hover::before,
 .btn:hover::after {
     background-position: 100% 0;
 }
 
+/* ===== Social Media Links Styles ===== */
 .home-sci a {
     position: relative;
     display: flex;
@@ -191,12 +254,12 @@ body {
     background: linear-gradient(45deg, #f06, #3cf);
     border-radius: 50%;
     z-index: -1;
-    transition: .5s ease;
+    transition: 0.5s ease;
 }
+
 .home-sci a:hover::before {
     filter: blur(5px);
 }
-
 
 .home-sci a::after {
     content: "";
@@ -205,15 +268,16 @@ body {
     height: 100%;
     background: #0c1022;
     border-radius: 50%;
-    transform: scale(.88);
+    transform: scale(0.88);
     z-index: -1;
-    transition: .5s ease;
+    transition: 0.5s ease;
 }
 
 .home-sci a:hover::after {
     transform: scale(0);
 }
 
+/* ===== Home Image Styles ===== */
 .home-img {
     width: 410px;
     height: 410px;
@@ -251,7 +315,6 @@ body {
     animation: rotate 4s linear infinite;
 }
 
-
 .glowing-circle span:nth-child(1) {
     filter: blur(10px);
 }
@@ -267,7 +330,6 @@ body {
     border-radius: 50%;
     z-index: 1;
     overflow: hidden;
-
 }
 
 .image img {
@@ -280,12 +342,13 @@ body {
     object-fit: cover;
 }
 
+/* ===== Keyframes for Animations ===== */
 @keyframes rotate {
     0% {
         transform: rotate(0deg);
     }
     100% {
-        transform: rotate(360deg)
+        transform: rotate(360deg);
     }
 }
 
@@ -336,22 +399,22 @@ body {
 @keyframes zoomIn {
     0% {
         opacity: 0;
-        transform: scale(0)
+        transform: scale(0);
     }
     100% {
         opacity: 1;
-        transform: scale(1)
+        transform: scale(1);
     }
 }
 
 @keyframes floatImage {
     0% {
-        transform: translateY(0)
+        transform: translateY(0);
     }
     50% {
-        transform: translateY(-24px)
+        transform: translateY(-24px);
     }
     100% {
-        transform: translateY(0)
+        transform: translateY(0);
     }
 }
