@@ -5,28 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Noah</title>
     <!-- External Stylesheets -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Starry Sky Background -->
+    <div class="starry-sky" id="starry-sky"></div>
+
     <!-- Header Section -->
     <header class="header">
         <a href="#" class="logo">Portfolio.</a>
 
         <!-- Navigation Menu -->
         <nav class="navbar">
-            <a href="#home" style="--i:1;" class="active">Home</a>
-            <a href="#about" style="--i:2;">About</a>
-            <a href="#" style="--i:3;">Skills</a>
-            <a href="#" style="--i:4;">Portfolio</a>
-            <a href="#" style="--i:5;">Contact</a>
+            <a href="#home" style="--i:1;" class="nav-link">Home</a>
+            <a href="#about" style="--i:2;" class="nav-link">About</a>
+            <a href="#skills" style="--i:3;" class="nav-link">Skills</a>
+            <a href="#portfolio" style="--i:4;" class="nav-link">Portfolio</a>
+            <a href="#contact" style="--i:5;" class="nav-link">Contact</a>
         </nav>
     </header>
 
     <!-- Home Section -->
-    <section class="home">
+    <section id="home" class="home">
         <!-- Social Media Links -->
         <div class="home-sci">
             <a href="https://www.instagram.com/noaharaujocorrea/"><i class='bx bxl-instagram'></i></a>
@@ -58,29 +61,201 @@
 
     <!-- About Section -->
     <section id="about" class="about">
-    <!-- Video Background -->
-    <video autoplay loop muted playsinline class="about-video-bg">
-        <source src="about-video.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+        <!-- Video Background with Parallax Effect -->
+        <div class="video-container">
+            <video autoplay loop muted playsinline class="about-video-bg">
+                <source src="about-video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-overlay"></div>
+        </div>
 
-    <!-- Gradient Overlays -->
-    <div class="fade-overlay-top"></div>
-    <div class="fade-overlay-bottom"></div>
+        <!-- About Content -->
+        <div class="about-content">
+            <h2>About Me</h2>
+            <div class="about-text">
+                <p>
+                    Hi, I'm <strong>Noah</strong>, a <strong>Full Stack Developer</strong> and <strong>Aerospace & Software Engineering</strong> student based in <strong>Brazil</strong>. I specialize in turning ideas into functional, user-friendly applications that solve real-world problems. With a strong foundation in both software development and aerospace engineering, I bring a unique perspective to every project I work on.
+                </p>
+                <p>
+                    I'm passionate about building scalable web applications, exploring cutting-edge technologies, and contributing to innovative solutions in the aerospace industry. When I'm not coding, you'll find me stargazing, brainstorming new ideas, or diving into the latest advancements in space exploration.
+                </p>
+                <p>
+                    Let's connect and build something amazing together!
+                </p>
+            </div>
+            <div class="about-buttons">
+                <a href="#" class="btn">Download Resume</a>
+            </div>
+        </div>
+    </section>
 
-    <!-- About Content -->
-    <div class="about-content">
-        <h2>About Me</h2>
-        <p>
-            Hi, I'm <strong>Noah</strong>, a <strong>Full Stack Developer</strong> and <strong>Aerospace & Software Engineering</strong> student based in <strong>Brazil</strong>. I specialize in turning ideas into functional, user-friendly applications that solve real-world problems. With a strong foundation in both software development and aerospace engineering, I bring a unique perspective to every project I work on.
-        </p>
-        <p>
-            I'm passionate about building scalable web applications, exploring cutting-edge technologies, and contributing to innovative solutions in the aerospace industry. When I'm not coding, you'll find me stargazing, brainstorming new ideas, or diving into the latest advancements in space exploration.
-        </p>
-        <p>
-            Let's connect and build something amazing together!
-        </p>
-    </div>
-</section>
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="skills-content">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill">
+                    <i class='bx bxl-html5'></i>
+                    <h3>HTML5</h3>
+                    <p>Proficient in writing clean, semantic, and accessible HTML5 code.</p>
+                </div>
+                <div class="skill">
+                    <i class='bx bxl-css3'></i>
+                    <h3>CSS3</h3>
+                    <p>Expert in creating responsive and visually stunning designs with CSS3.</p>
+                </div>
+                <div class="skill">
+                    <i class='bx bxl-javascript'></i>
+                    <h3>JavaScript</h3>
+                    <p>Skilled in building interactive and dynamic web applications.</p>
+                </div>
+                <div class="skill">
+                    <i class='bx bxl-react'></i>
+                    <h3>React</h3>
+                    <p>Experienced in developing modern, component-based UIs with React.</p>
+                </div>
+                <div class="skill">
+                    <i class='bx bxl-nodejs'></i>
+                    <h3>Node.js</h3>
+                    <p>Proficient in building scalable backend systems with Node.js.</p>
+                </div>
+                <div class="skill">
+                    <i class='bx bxl-python'></i>
+                    <h3>Python</h3>
+                    <p>Experienced in data analysis, automation, and backend development.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="portfolio-content">
+            <h2>Portfolio</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://via.placeholder.com/400x300" alt="Project 1">
+                    <div class="portfolio-overlay">
+                        <h3>Project 1</h3>
+                        <p>A responsive e-commerce website built with React and Node.js.</p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://via.placeholder.com/400x300" alt="Project 2">
+                    <div class="portfolio-overlay">
+                        <h3>Project 2</h3>
+                        <p>An interactive data visualization dashboard using D3.js.</p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://via.placeholder.com/400x300" alt="Project 3">
+                    <div class="portfolio-overlay">
+                        <h3>Project 3</h3>
+                        <p>A mobile-first landing page for a tech startup.</p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="contact-content">
+            <h2>Contact</h2>
+            <p>Let's work together! Reach out to me for collaborations or just to say hi.</p>
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Starry Sky Script -->
+    <script>
+        const starrySky = document.getElementById('starry-sky');
+
+        // Function to create a star
+        function createStar(isConstellation = false) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.top = `${Math.random() * 100}%`;
+            star.style.animationDelay = `${Math.random() * 2}s`;
+
+            // Randomize star size and brightness
+            const size = isConstellation ? Math.random() * 4 + 2 : Math.random() * 3; // Constellation stars are larger
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            star.style.opacity = isConstellation ? `${Math.random() * 0.8 + 0.5}` : `${Math.random() * 0.8 + 0.2}`; // Constellation stars are brighter
+
+            starrySky.appendChild(star);
+        }
+
+        // Create 1000 stars (half the original amount)
+        for (let i = 0; i < 1000; i++) {
+            createStar();
+        }
+
+        // Create constellation stars (larger and brighter)
+        const constellationStars = 50; // Number of constellation stars
+        for (let i = 0; i < constellationStars; i++) {
+            createStar(true);
+        }
+    </script>
+
+    <!-- Smooth Scrolling and Active Link Script -->
+    <script>
+        // Get all sections and navbar links
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        // Function to check if an element is in the viewport
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+            );
+        }
+
+        // Function to handle scroll events
+        function handleScroll() {
+            sections.forEach((section, index) => {
+                if (isInViewport(section)) {
+                    // Remove active class from all links
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    // Add active class to the corresponding link
+                    navLinks[index].classList.add('active');
+                }
+            });
+        }
+
+        // Add scroll event listener
+        window.addEventListener('scroll', handleScroll);
+
+        // Trigger the scroll handler on page load
+        handleScroll();
+
+        // Smooth scrolling for navbar links
+        document.querySelectorAll('.navbar a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault(); // Prevent default anchor behavior
+                const targetId = this.getAttribute('href'); // Get the target section ID
+                document.querySelector(targetId).scrollIntoView({
+                    behavior: 'smooth' // Smooth scroll to the target section
+                });
+
+                // Update the active link
+                navLinks.forEach(link => link.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
 </body>
 </html>
