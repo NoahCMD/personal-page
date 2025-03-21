@@ -10,6 +10,32 @@
 body {
     background: #000000;
     color: #fff;
+    overflow-x: hidden;
+}
+
+/* ===== Starry Sky Background ===== */
+.starry-sky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: -2;
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    animation: twinkle 2s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 1; }
 }
 
 /* ===== Header Styles ===== */
@@ -36,6 +62,10 @@ body {
     animation: slideTop 1s ease forwards;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* ===== Navigation Styles ===== */
 .navbar a {
     display: inline-block;
@@ -49,7 +79,14 @@ body {
     animation-delay: calc(0.2s * var(--i));
 }
 
-.navbar a.active,
+/* Active Navbar Link */
+.navbar a.active {
+    color: #fff; /* Change to your desired active color */
+    background: linear-gradient(45deg, #f06, #3cf);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
 .navbar a:hover {
     background: linear-gradient(45deg, #f06, #3cf);
     -webkit-text-fill-color: transparent;
@@ -98,55 +135,56 @@ body {
 }
 
 /* ===== About Section Styles ===== */
-/* About Section */
 .about {
     position: relative;
     height: 100vh;
     display: flex;
     align-items: center;
-    padding: 0 10%;
+    justify-content: center;
     overflow: hidden;
     color: #fff;
+    padding: 0 10%;
 }
 
-/* Video Background */
-.about-video-bg {
+/* Video Container */
+.video-container {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    z-index: -1; /* Place video behind content */
-    clip-path: polygon(90% 10%, 100% 50%, 90% 90%, 25% 90%, 50% 50%, 25% 10%);
- /* Custom curve */
+    z-index: -1;
+    overflow: hidden;
 }
 
-/* Gradient Overlays */
-.fade-overlay-top,
-.fade-overlay-bottom {
+.about-video-bg {
     position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+/* Video Overlay */
+.video-overlay {
+    position: absolute;
+    top: 0;
     left: 0;
     width: 100%;
-    height: 70%; /* Adjust the height of the fade */
-    z-index: 0; /* Place overlays above the video but below the content */
-}
-
-.fade-overlay-top {
-    top: 0;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)); /* Fade from solid black to transparent */
-}
-
-.fade-overlay-bottom {
-    bottom: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)); /* Fade from solid black to transparent */
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 0;
 }
 
 /* About Content */
 .about-content {
     position: relative;
-    z-index: 1; /* Place content above video and overlays */
-    max-width: 600px;
+    z-index: 1;
+    max-width: 800px;
+    text-align: center;
 }
 
 .about-content h2 {
@@ -158,13 +196,42 @@ body {
     animation-delay: 0.7s;
 }
 
-.about-content p {
-    font-size: 18px;
-    line-height: 1.6;
-    margin-bottom: 20px;
+.about-text {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    margin-bottom: 30px;
     opacity: 0;
     animation: slideLeft 1s ease forwards;
     animation-delay: 1s;
+}
+
+.about-text p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.about-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    opacity: 0;
+    animation: slideTop 1s ease forwards;
+    animation-delay: 1.3s;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.btn-outline:hover {
+    background: #fff;
+    color: #000;
 }
 
 /* ===== Button Styles ===== */
@@ -301,7 +368,7 @@ body {
     position: absolute;
     width: 380px;
     height: 380px;
-    background: #0c1022;
+    background: #000000;
     border-radius: 50%;
     filter: blur(3px);
 }
@@ -417,4 +484,203 @@ body {
     100% {
         transform: translateY(0);
     }
+}
+
+/* ===== Skills Section Styles ===== */
+.skills {
+    position: relative;
+    padding: 100px 10%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1;
+}
+
+.skills-content h2 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-align: center;
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+    animation-delay: 0.7s;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.skill {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.skill:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.skill i {
+    font-size: 50px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.skill h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.skill p {
+    font-size: 16px;
+    color: #ccc;
+}
+
+/* ===== Portfolio Section Styles ===== */
+.portfolio {
+    position: relative;
+    padding: 100px 10%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1;
+}
+
+.portfolio-content h2 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-align: center;
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+    animation-delay: 0.7s;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.portfolio-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+.portfolio-overlay h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.portfolio-overlay p {
+    font-size: 16px;
+    color: #ccc;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.portfolio-overlay .btn {
+    background: linear-gradient(45deg, #f06, #3cf);
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+}
+
+/* ===== Contact Section Styles ===== */
+.contact {
+    position: relative;
+    padding: 100px 10%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1;
+}
+
+.contact-content h2 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+    animation-delay: 0.7s;
+}
+
+.contact-content p {
+    font-size: 18px;
+    color: #ccc;
+    text-align: center;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: 1s;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 16px;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form button {
+    background: linear-gradient(45deg, #f06, #3cf);
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+    background: linear-gradient(45deg, #3cf, #f06);
 }
